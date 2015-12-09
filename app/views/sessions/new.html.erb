@@ -1,0 +1,12 @@
+<%= content_tag :div, class: 'page-header' do %>
+  <%= content_tag :h1 do %>
+    Login
+  <% end %>
+<% end %>
+
+<%= form_tag session_url do %>
+  <div class="form-group form-group-lg">
+    <%= text_field_tag :username, '', class: 'form-control', placeholder: 'Username' %>
+  </div>
+  <button type="submit" class="btn btn-primary">Log In</button>
+<% end %>
