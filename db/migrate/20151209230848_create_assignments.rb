@@ -3,6 +3,7 @@ class CreateAssignments < ActiveRecord::Migration
     create_table :assignments do |t|
       t.integer :student_id, null: false
       t.integer :teacher_id, null: false
+      t.integer :homework_id, null: false
 
       t.timestamps null: false
     end
