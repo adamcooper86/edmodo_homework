@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :assignment do
     student
-    teacther
+    teacher
     homework
   end
 end
