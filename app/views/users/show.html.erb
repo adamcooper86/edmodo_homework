@@ -1,4 +1,13 @@
-<h4> Hello <%= @student.username %>, ready to do your homework?</h4>
+<%= render 'shared/greeting' %>
+
+<% if @user.teacher?  %>
+  <section id="homeworksList">
+    <h5>Assignemts:</h5>
+    <ul>
+      <%= render 'shared/homeworks_list' %>
+    </ul>
+  </section>
+<% end %>
 
 <section id="assignmentsList">
   <h5>Assignemts:</h5>

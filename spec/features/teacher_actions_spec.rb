@@ -6,7 +6,7 @@ feature "Teacher sees a list of lates submissions", js: false do
 
   background do
     3.times do
-      FactoryGirl.create :homework
+      FactoryGirl.create :assignment, teacher: teacher
     end
 
     visit login_path

@@ -4,4 +4,8 @@ class Assignment < ActiveRecord::Base
   belongs_to :homework
 
   validates :teacher, :student, :homework, presence: true
+
+  def self.homeworks_for assignments
+    assignments.map{|assignment| assignment.homework }.uniq
+  end
 end

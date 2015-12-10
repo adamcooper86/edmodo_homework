@@ -15,4 +15,26 @@ RSpec.describe Assignment, type: :model do
       expect(FactoryGirl.build(:assignment, homework: nil)).not_to be_valid
     end
   end
+  describe '.homeworks' do
+    it 'returns an empty array if no assignments are provided' do
+      expect(Assignment.homeworks_for []).to eq []
+    end
+    it 'returns an array of homeworks based on a collection of assignments' do
+      assignment1 = FactoryGirl.create(:assignment)
+      assignment2 = FactoryGirl.create(:assignment)
+      assignments = [ assignment1, assignment2 ]
+      homeworks = [ assignment1.homework, assignment2.homework ]
+
+      expect(Assignment.homeworks_for assignments).to eq homeworks
+    end
+    it 'the homeworks are unique' do
+      homework = FactoryGirl.create(:homework)
+      assignment1 = FactoryGirl.create(:assignment, homework: homework)
+      assignment2 = FactoryGirl.create(:assignment, homework: homework)
+      assignments = [ assignment1, assignment2 ]
+      homeworks = [ homework ]
+
+      expect(Assignment.homeworks_for assignments).to eq homeworks
+    end
+  end
 end
