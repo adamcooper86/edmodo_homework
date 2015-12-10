@@ -23,4 +23,16 @@ feature "Student Panel shows assignments", js: false do
     expect(page).to have_content Assignment.last.homework.question
     expect(page).to have_content Assignment.last.homework.due
   end
+  scenario 'Student can create a new submission' do
+    first('.assignment').click_link('Answer')
+
+    expect(page).to have_selector '.new_submission'
+
+    within '.new_submission' do
+      fill_in 'submission_answer', with: 'Answer to homework'
+    end
+    click_on 'Submit'
+
+    expect(page).to have_selector '#submissionInfo'
+  end
 end
