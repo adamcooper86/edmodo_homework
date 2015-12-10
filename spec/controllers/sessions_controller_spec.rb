@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
   let(:teacher) {FactoryGirl.create(:teacher)}
+  let(:student) {FactoryGirl.create(:student)}
 
   describe 'GET new' do
     it 'renders template' do
@@ -17,9 +18,9 @@ RSpec.describe SessionsController, type: :controller do
         expect(session[:user_id]).to eq teacher.id
       end
 
-      it 'redirects to root_url' do
-        post :create, {username: teacher.username}
-        expect(response).to redirect_to root_url
+      it 'redirects to a student to a student show page' do
+        post :create, {username: student.username}
+        expect(response).to redirect_to student_path student
       end
     end
 

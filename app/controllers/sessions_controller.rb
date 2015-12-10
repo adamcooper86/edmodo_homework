@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @user = User.where(username: params[:username]).first
     if @user
       session[:user_id] = @user.id
-      redirect_to root_url
+      redirect_to redirect_path @user
     else
       session[:user_id] = nil
       render :new
@@ -18,5 +18,14 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_url
+  end
+
+private
+  def redirect_path user
+    if user.student?
+      student_path user
+    else
+      root_url
+    end
   end
 end
