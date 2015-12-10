@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Teacher sees a list of lates submissions", js: false, focus: true do
+feature "Teacher sees a list of lates submissions", js: false do
   given!(:teacher){ FactoryGirl.create :teacher }
   given(:student){ FactoryGirl.create :student }
 

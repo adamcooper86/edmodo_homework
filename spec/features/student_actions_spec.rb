@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Student Panel shows assignments", js: false, focus: true do
+feature "Student Panel shows assignments", js: false do
   given!(:student){ FactoryGirl.create :student }
 
   context 'With open assignments' do

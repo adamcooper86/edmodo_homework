@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe StudentsController, type: :controller do
+RSpec.describe UsersController, type: :controller do
   let(:student){ FactoryGirl.create :student }
 
   before(:each){
