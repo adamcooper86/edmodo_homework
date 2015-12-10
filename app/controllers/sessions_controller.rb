@@ -22,7 +22,6 @@ class SessionsController < ApplicationController
 
 private
   def redirect_path user
-    puts user.student?
     if user.student?
       student_path user
     else
