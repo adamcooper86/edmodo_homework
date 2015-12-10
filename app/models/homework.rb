@@ -1,5 +1,6 @@
 class Homework < ActiveRecord::Base
   has_many :assignments
+  has_many :submissions
   has_many :students, through: :assignments
   has_many :teachers, through: :assignments
 
