@@ -1,0 +1,6 @@
+<%= form_for @submission do |form| %>
+  <input type="hidden" id="assignment_id" name="assignment_id" value="<%= @assignment.id %>" />
+  <%= form.label :answer, "Answer" %>
+  <%= form.text_area :answer %>
+  <%= form.submit "Submit" %>
+<% end %>

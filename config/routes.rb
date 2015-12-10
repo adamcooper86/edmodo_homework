@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create', as: 'session'
   match 'logout', to: 'sessions#destroy', as: 'logout', via: [:get, :delete]
 
+  resources :homeworks, only: [:show, :edit]
+  resources :submissions, only: [:new, :create]
   resources :students, only: [:show]
 end
