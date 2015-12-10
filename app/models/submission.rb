@@ -1,4 +1,8 @@
 class Submission < ActiveRecord::Base
-  belongs_to :homework
-  validates :homework, presence: true
+  belongs_to :assignment
+  validates :assignment, presence: true
+
+  def student
+    self.assignment.student
+  end
 end

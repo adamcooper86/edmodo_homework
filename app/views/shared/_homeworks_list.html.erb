@@ -1,0 +1,13 @@
+<% @homeworks.each do |homework| %>
+  <li class="homework">
+    <h6><%= homework.title %></h6>
+    <ul>
+      <% homework.last_submissions.each do |submission| %>
+      <li class="submission">
+        <h7>Student: <%= submission.student.username %></h7>
+        <a class="see_all" href="<%= student_homework_path submission.student, homework %>"><button>See all versions</button></a>
+        <p><%= submission.answer %></p>
+      <% end %>
+    </ul>
+  </li>
+<% end %>

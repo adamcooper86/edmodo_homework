@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20151210020602) do
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.integer  "homework_id"
+    t.integer  "assignment_id"
     t.string   "answer"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

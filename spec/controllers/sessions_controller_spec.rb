@@ -20,7 +20,7 @@ RSpec.describe SessionsController, type: :controller do
 
       it 'redirects to a student to a student show page' do
         post :create, {username: student.username}
-        expect(response).to redirect_to student_path student
+        expect(response).to redirect_to user_path student
       end
     end
 

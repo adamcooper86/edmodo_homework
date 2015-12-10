@@ -1,2 +1,15 @@
 <section id="submissionInfo">
+  <h6><%= @homework.title %></h6>
+  <p><%= @homework.question %></p>
+  <p><%= @homework.due %></p>
+
+  <h6>Submissions:</h6>
+  <ul>
+  <%= @submissions.each do |submission|%>
+    <li class="submission">
+      <h7>Student: <%= submission.student.username %></h7>
+      <p><%= submission.answer %></p>
+    </li>
+  <% end %>
+  </ul>
 </section>

@@ -1,0 +1,5 @@
+<% if @user.student? %>
+  <h4> Hello <%= @user.username %>, ready to do your homework?</h4>
+<% else %>
+  <h4> Welcome <%= @user.username %>, lets see how your students are doing!</h4>
+<% end %>

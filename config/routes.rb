@@ -8,5 +8,5 @@ Rails.application.routes.draw do
 
   resources :homeworks, only: [:show, :edit]
   resources :submissions, only: [:new, :create]
-  resources :students, only: [:show]
+  resources :users, only: [:show]
 end
