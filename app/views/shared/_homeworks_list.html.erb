@@ -1,5 +1,11 @@
 <% @homeworks.each do |homework| %>
   <li class="homework">
     <h6><%= homework.title %></h6>
+    <ul>
+      <% homework.submissions.each do |submission| %>
+      <li class="submission">
+        <h7>Student: <%= submission.student %></h7>
+        <p><%= submission.answer %></p>
+      <% end %>
   </li>
 <% end %>
