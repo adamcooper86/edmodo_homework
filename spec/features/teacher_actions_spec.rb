@@ -6,7 +6,9 @@ feature "Teacher sees a list of lates submissions", js: false do
 
   background do
     3.times do
-      FactoryGirl.create :assignment, teacher: teacher
+      assignment = FactoryGirl.create :assignment, teacher: teacher
+      FactoryGirl.create :submission, assignment: assignment, answer: "first answer"
+      FactoryGirl.create :submission, assignment: assignment, answer: "second answer"
     end
 
     visit login_path
@@ -21,5 +23,9 @@ feature "Teacher sees a list of lates submissions", js: false do
     expect(page).to have_selector '#homeworksList'
     expect(page).to have_selector '.homework'
     expect(page).to have_content Homework.last.title
+  end
+  scenario 'Teacher sees all of the latest_submissions' do
+    expect(page).to have_content "second answer"
+    expect(page).not_to have_content "first answer"
   end
 end

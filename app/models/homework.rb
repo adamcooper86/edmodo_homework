@@ -9,4 +9,8 @@ class Homework < ActiveRecord::Base
     #creates a flat non-nested array of unique submission objects
     self.assignments.map{|assignment| assignment.submissions }.flatten.uniq
   end
+
+  def last_submissions
+    self.assignments.map{|assignment| assignment.submissions.last }.flatten
+  end
 end
