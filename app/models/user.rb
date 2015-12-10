@@ -8,9 +8,14 @@ class User < ActiveRecord::Base
   has_many :student_assignments, class_name: 'Assignment', foreign_key: 'student_id'
 
   def assign_homework_to_students options
-    homework = options.fetch :homework
-    students = options.fetch :students
+    homework = options.fetch :homework, nil
+    students = options.fetch :students, nil
 
+    students.is_a?(Array) ? create_assignments(students, homework) : raise(ArgumentError, ':students arguement is not a valid input')
+  end
+
+private
+  def create_assignments students, homework
     students.map do |student|
       Assignment.create student_id: student.id, teacher_id: self.id, homework_id: homework.id
     end

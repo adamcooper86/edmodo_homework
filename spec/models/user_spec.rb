@@ -16,6 +16,20 @@ RSpec.describe User, type: :model do
       it 'should create assignment record' do
         expect{subject}.to change{Assignment.all.count}.by 1
       end
+
+      context 'given invalid inputs' do
+        let(:no_students){ {homework: homework} }
+        let(:students_not_arrray){ {students: student, homework: homework} }
+        let(:no_homework){ {students: [student]} }
+
+        it 'Raises an arguement error if not provided with an array of students' do
+          expect{teacher.assign_homework_to_students no_students}.to raise_error
+          expect{teacher.assign_homework_to_students students_not_array}.to raise_error
+        end
+        it 'Raises an arguement error if not proveded a homework' do
+          expect{teacher.assign_homework_to_students no_homework}.to raise_error
+        end
+      end
     end
   end
 end
