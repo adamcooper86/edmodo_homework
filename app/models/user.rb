@@ -17,7 +17,10 @@ class User < ActiveRecord::Base
 private
   def create_assignments students, homework
     students.map do |student|
-      Assignment.create student_id: student.id, teacher_id: self.id, homework_id: homework.id
+      create_assignment student.id, homework.id, self.id
     end
+  end
+  def create_assignment student_id, homework_id, teacher_id
+    Assignment.create student_id: student_id, teacher_id: teacher_id, homework_id: homework_id
   end
 end
