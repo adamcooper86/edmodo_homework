@@ -3,14 +3,14 @@ class SubmissionsController < ApplicationController
     @user = current_user
     @assignment = Assignment.find(params[:assignment_id])
     @homework = @assignment.homework
-    @submission = Submission.new homework_id: @homework.id
+    @submission = Submission.new assignment_id: @assignment.id
   end
 
   def create
     @user = current_user
     @assignment = Assignment.find(params[:assignment_id])
     @homework = @assignment.homework
-    @submission = Submission.new homework_id: @homework.id, answer: params[:answer]
+    @submission = Submission.new assignment_id: @assignment.id, answer: params[:answer]
     if not_closed && @submission.save
       redirect_to homework_path @homework
     else

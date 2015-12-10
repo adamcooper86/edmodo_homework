@@ -3,6 +3,8 @@ class Assignment < ActiveRecord::Base
   belongs_to :student, class_name: "User"
   belongs_to :homework
 
+  has_many :submissions
+
   validates :teacher, :student, :homework, presence: true
 
   def self.homeworks_for assignments

@@ -15,7 +15,7 @@ RSpec.describe SubmissionsController, type: :controller do
     it { is_expected.to render_template "new" }
   end
   describe 'POST #create' do
-    context 'A not late valide submission' do
+    context 'A not late valid submission' do
       subject{ post :create, assignment_id: assignment.id }
 
       it { is_expected.to have_http_status 302 }

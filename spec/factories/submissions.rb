@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :submission do
-    homework
+    assignment
     answer "MyString"
   end
 end
