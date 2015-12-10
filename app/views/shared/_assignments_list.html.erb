@@ -1,0 +1,8 @@
+<% @assignments.each do |assignment| %>
+  <li class="assignment">
+    <h6><%= assignment.homework.title %></h6>
+    <p><%= assignment.homework.question %></p>
+    <p><%= assignment.homework.due %></p>
+    <%= button_to 'Answer', edit_homework_path(assignment.homework), method: :get %>
+  </li>
+<% end %>

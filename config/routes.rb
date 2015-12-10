@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   match 'logout', to: 'sessions#destroy', as: 'logout', via: [:get, :delete]
 
   resources :students, only: [:show]
+  resources :homeworks, only: [:edit]
 end
