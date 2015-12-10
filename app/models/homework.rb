@@ -5,12 +5,17 @@ class Homework < ActiveRecord::Base
 
   validates :question, :title, :due, presence: true
 
-  def submissions
+  def submissions assignments = self.assignments
     #creates a flat non-nested array of unique submission objects
-    self.assignments.map{|assignment| assignment.submissions }.flatten.uniq
+    assignments.map{|assignment| assignment.submissions }.flatten.uniq
   end
 
   def last_submissions
     self.assignments.map{|assignment| assignment.submissions.last }.flatten
+  end
+
+  def student_submissions student
+    student_assignments = self.assignments.where(student_id: student.id)
+    self.submissions student_assignments
   end
 end

@@ -28,4 +28,10 @@ feature "Teacher sees a list of lates submissions", js: false do
     expect(page).to have_content "second answer"
     expect(page).not_to have_content "first answer"
   end
+  scenario 'Teacher can go to homework show page to see all submission versions' do
+    first('.homework').click_link('See all')
+
+    expect(page).to have_content "first answer"
+    expect(page).to have_content "second answer"
+  end
 end
