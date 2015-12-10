@@ -11,6 +11,6 @@ RSpec.describe StudentsController, type: :controller do
     subject{ get :show, id: student.id }
 
     it { is_expected.to be_success }
-    # it { is_expected.to render_template "show" }
+    it { is_expected.to render_template "show" }
   end
 end

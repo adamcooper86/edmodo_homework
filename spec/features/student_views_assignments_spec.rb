@@ -17,5 +17,10 @@ feature "Student Panel shows assignments", js: false do
 
   scenario 'Student sees a list of assignments' do
     expect(page).to have_content student.username
+    expect(page).to have_selector '#assignmentsList'
+    expect(page).to have_selector '.assignment'
+    expect(page).to have_content Assignment.last.homework.title
+    expect(page).to have_content Assignment.last.homework.question
+    expect(page).to have_content Assignment.last.homework.due
   end
 end

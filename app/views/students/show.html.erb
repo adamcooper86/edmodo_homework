@@ -1,1 +1,8 @@
-<%= @student.username %>
+<h4> Hello <%= @student.username %>, ready to do your homework?</h4>
+
+<section id="assignmentsList">
+  <h5>Assignemts:</h5>
+  <ul>
+    <%= render 'shared/assignments_list' %>
+  </ul>
+</section>
