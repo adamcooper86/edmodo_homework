@@ -1,15 +1,26 @@
-<section id="submissionInfo">
-  <h6><%= @homework.title %></h6>
-  <p><%= @homework.question %></p>
-  <p><%= @homework.due %></p>
+<article class="page">
+  <section id="submissionInfo">
+    <section id="due_by">
+      <h5>Due by <%= @homework.due %></h5>
+    </section>
+    <h3><%= @homework.title %></h3>
+    <p><%= @homework.question %></p>
 
-  <h6>Submissions:</h6>
-  <ul>
-  <%= @submissions.each do |submission|%>
-    <li class="submission">
-      <h7>Student: <%= submission.student.username %></h7>
-      <p><%= submission.answer %></p>
-    </li>
-  <% end %>
-  </ul>
-</section>
+    <section id="submissionsList" class="panel panel-default">
+      <div class="panel-heading">
+        <h6>Submissions:</h6>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @submissions.each do |submission|%>
+          <li class="submission">
+            <h7>Student: <%= submission.student.username %></h7>
+            <p><%= submission.answer %></p>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </section>
+  </section>
+</article>
+
