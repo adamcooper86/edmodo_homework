@@ -1,10 +1,12 @@
 <% @assignments.each do |assignment| %>
   <li class="assignment">
-    <h6><%= assignment.homework.title %></h6>
+    <section id="due_by">
+      <h5>Due by <%= assignment.homework.due %></h5>
+    </section>
+    <h4><%= assignment.homework.title %></h4>
     <p><%= assignment.homework.question %></p>
-    <p><%= assignment.homework.due %></p>
-    <% if Date.today <= assignment.homework.due %>
-      <a href="<%= new_submission_path assignment %>"><button>Answer</button></a>
+    <% if Date.today <= assignment.homework.due && @user.student? %>
+      <a href="<%= new_submission_path assignment %>"><button class="btn btn-default">Answer</button></a>
     <% end %>
   </li>
 <% end %>
