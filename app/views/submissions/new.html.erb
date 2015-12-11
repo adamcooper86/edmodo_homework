@@ -1,6 +1,17 @@
-<%= form_for @submission do |form| %>
-  <input type="hidden" id="assignment_id" name="assignment_id" value="<%= @assignment.id %>" />
-  <%= form.label :answer, "Answer" %>
-  <%= form.text_area :answer %>
-  <%= form.submit "Submit" %>
-<% end %>
+<article class="page">
+  <section id="due_by">
+    <h5>Due by <%= @assignment.homework.due %></h5>
+  </section>
+  <h3>Prompt:</h3>
+  <p><%= @assignment.homework.question %></p>
+
+  <%= form_for @submission do |form| %>
+    <input type="hidden" id="assignment_id" name="assignment_id" value="<%= @assignment.id %>" />
+    <div class="form-group">
+      <label for="submission_answer">Answer:</label>
+      <br />
+      <%= form.text_area :answer, cols: 50 %>
+    </div>
+      <%= form.submit "Submit", class: "btn btn-default" %>
+  <% end %>
+</article>
