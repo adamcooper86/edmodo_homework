@@ -1,0 +1,16 @@
+#navbar{
+  background-color: rgb(74, 178, 115);
+
+  .navbar-brand, a{
+    color: rgb(155, 55, 45);
+  }
+
+  ul.nav {
+    float: right;
+
+    li:hover{
+      background-color: rgb(165, 255, 195);
+    }
+  }
+}
+

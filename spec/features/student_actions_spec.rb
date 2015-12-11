@@ -40,7 +40,7 @@ feature "Student Panel shows assignments", js: false do
   context 'without open assignments' do
     background do
       3.times do
-        time = Time.now - 60
+        time = Date.today - 1
         homework = FactoryGirl.create :homework, due: time
         FactoryGirl.create :assignment, student: student, homework: homework
       end

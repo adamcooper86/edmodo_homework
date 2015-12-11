@@ -1,17 +1,25 @@
 <%= render 'shared/greeting' %>
 
 <% if @user.teacher?  %>
-  <section id="homeworksList">
-    <h5>Homeworks:</h5>
-    <ul>
-      <%= render 'shared/homeworks_list' %>
-    </ul>
+  <section id="homeworksList" class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Homeworks:</h3>
+    </div>
+    <div class="panel-body">
+      <ul>
+        <%= render 'shared/homeworks_list' %>
+      </ul>
+    </div>
   </section>
 <% end %>
 
-<section id="assignmentsList">
-  <h5>Assignemts:</h5>
-  <ul>
-    <%= render 'shared/assignments_list' %>
-  </ul>
+<section id="assignmentsList" class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Assignemts:</h3>
+  </div>
+  <div class="panel-body">
+    <ul>
+      <%= render 'shared/assignments_list' %>
+    </ul>
+  </div>
 </section>
